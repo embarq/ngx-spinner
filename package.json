@@ -1,0 +1,51 @@
+{
+  "name": "ngx-spinner",
+  "version": "0.1.2",
+  "module": "dist/ngx-spinner.js",
+  "main": "dist/ngx-spinner.umd.js",
+  "types": "dist/ngx-spinner.d.ts",
+  "scripts": {
+    "build": "npm run clean && npm run ngc && npm run bundle && npm run copy-metadata",
+    "bundle": "npm run bundle:fesm && npm run bundle:umd",
+    "bundle:fesm": "rollup build/ngx-spinner.js -o dist/ngx-spinner.js --format es",
+    "bundle:umd": "rollup build/ngx-spinner.js -o dist/ngx-spinner.umd.js --format umd --name ngxOffset",
+    "clean": "rm -rf build && rm -rf dist",
+    "copy-metadata": "find build/* -not -name '*.js' -exec cp {} dist \\;",
+    "ngc": "ngc -p tsconfig.build.json",
+    "start": "ng serve"
+  },
+  "peerDependencies": {
+    "@angular/common": ">=4.0.0",
+    "@angular/core": ">=4.0.0",
+    "rxjs": ">=5.0.0"
+  },
+  "devDependencies": {
+    "@angular/animations": "^4.0.0",
+    "@angular/cli": "1.2.7",
+    "@angular/common": "4.0.0",
+    "@angular/compiler": "4.0.0",
+    "@angular/compiler-cli": "4.0.0",
+    "@angular/core": "4.0.0",
+    "@angular/platform-browser": "4.0.0",
+    "@angular/platform-browser-dynamic": "4.0.0",
+    "core-js": "2.5.0",
+    "rollup": "0.48.2",
+    "rxjs": "5.0.0",
+    "typescript": "2.3.0",
+    "zone.js": "0.8.17"
+  },
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/turbokit/ngx-spinner.git"
+  },
+  "bugs": {
+    "url": "https://github.com/turbokit/ngx-spinner/issues"
+  },
+  "homepage": "https://github.com/turbokit/ngx-spinner#readme",
+  "bundleDependencies": false,
+  "deprecated": false,
+  "dependencies": {
+    "bootstrap": "^4.0.0-beta"
+  }
+}
