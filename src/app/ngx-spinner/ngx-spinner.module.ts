@@ -5,8 +5,9 @@ import {
   SkipSelf
 } from '@angular/core';
 import { CommonModule } from '@angular/common';
+
 import { NgxSpinnerComponent } from './ngx-spinner.component';
-import { NgxSpinnerController } from './ngx-spinner.controller';
+import { NgxSpinnerController, NgxSpinnerOptions } from './ngx-spinner.controller';
 
 @NgModule({
   imports: [ CommonModule ],
@@ -18,6 +19,18 @@ export class NgxSpinnerModule {
   constructor (@Optional() @SkipSelf() parentModule: NgxSpinnerModule) {
     if (parentModule) {
       throw new Error('NgxSpinnerModule is already loaded. Import it in the AppModule only');
+    }
+  }
+
+  public static forRoot(config: NgxSpinnerOptions) {
+    return {
+      ngModule: NgxSpinnerModule,
+      providers: [
+        {
+          provide: NgxSpinnerOptions,
+          useValue: config
+        }
+      ]
     }
   }
 }
